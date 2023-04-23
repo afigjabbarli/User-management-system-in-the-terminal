@@ -25,7 +25,7 @@ namespace TaskManagement.Common
         {
             while (true)
             {
-                Console.WriteLine("Pls enter first name : ");
+                Console.Write("Pls enter first name : ");
                 string firstName = Console.ReadLine()!;
 
                 if (IsValidFirstName(firstName))
@@ -52,7 +52,7 @@ namespace TaskManagement.Common
         {
             while (true)
             {
-                Console.WriteLine("Pls enter last name : ");
+                Console.Write("Pls enter last name : ");
                 string lastName = Console.ReadLine()!;
 
                 if (IsValidLastName(lastName))
@@ -77,7 +77,7 @@ namespace TaskManagement.Common
         {
             while (true)
             {
-                Console.WriteLine("Pls enter password : ");
+                Console.Write("Pls enter password : ");
                 string password = Console.ReadLine()!;
 
                 Console.WriteLine("Pls enter confirm password : ");
@@ -101,7 +101,7 @@ namespace TaskManagement.Common
             while (true)
             {
 
-                Console.WriteLine("Pls enter email : ");
+                Console.Write("Pls enter email : ");
                 string email = Console.ReadLine()!;
                 //Way 1
                 //if (_utility.Contains(email, AT_SIGN) && !IsEmailExists(users, email))
@@ -145,25 +145,29 @@ namespace TaskManagement.Common
 
 
 
+                    
                 if (!IsEmailExists(email))
                 {
-                       Regex regex = new Regex("@^.{10, 50}$");
-                    //Match match = regex.Match(email);
-                    //Match match = regex.Match(email);
-                       if (regex.IsMatch(email))
-                       {
-                         Console.WriteLine($"{email}");
-                       }
-                      
-                       else  
-                       {
-                        Console.WriteLine("The entered information is incorrect!!!");
-                       }
-
-                }
+                    string[] splitString = Regex.Split(email, @"@");
+                    string receipent = splitString[0];
+                    Console.WriteLine($"Email receipent: {receipent}");
+                    Regex regex = new Regex(@"^[a-zA-Z0-9]{10,30}$");
+                    Match match = regex.Match(receipent);
+                    if (match.Success)
+                    {
                         
-                    else
-                        Console.WriteLine("Your email is already used in system, pls try another email");
+                    }
+                    if(!match.Success)
+                    {
+                        Console.WriteLine($"The information <<{email}>> you entered is incorrect");
+                    }
+                }
+                else
+                Console.WriteLine("Your email is already used in system, pls try another email");
+
+
+                
+                    
 
 
                 
