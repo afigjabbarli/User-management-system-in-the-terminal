@@ -6,6 +6,7 @@ namespace TaskManagement.Database
     {
         public static List<User> Users { get; set; } = new List<User>();
         public static List<Message> Messages { get; set; } = new List<Message>();
+        public static List<DataTimes> DataTimes { get; set; } = new List<DataTimes>();
 
         static DataContext()
         {

@@ -180,6 +180,7 @@ namespace TaskManagement.Common
                            DateTime dateTime = DateTime.Now;
                            Console.WriteLine("Local registration date: {0}", dateTime);
                            Console.WriteLine("Universal registration date: {0}", dateTime.ToUniversalTime());
+                           
                            Console.WriteLine();
                            
                            return email;
