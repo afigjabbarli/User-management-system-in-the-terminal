@@ -80,7 +80,7 @@ namespace TaskManagement.Common
                 Console.Write("Pls enter password : ");
                 string password = Console.ReadLine()!;
 
-                Console.WriteLine("Pls enter confirm password : ");
+                Console.Write("Pls enter confirm password : ");
                 string confirmPassword = Console.ReadLine()!;
 
                 if (password == confirmPassword)
@@ -149,34 +149,37 @@ namespace TaskManagement.Common
                 if (!IsEmailExists(email))
                 {
                     Regex compatible = new Regex("\\S+@\\S+\\.\\S+\\.\\S+");
-                    compatible.IsMatch(email);
+                    
+                   
                     if (compatible.IsMatch(email))
                     {
 
                     string[] splitString = Regex.Split(email, @"@");
                     string receipent = splitString[0];
-                    //Console.WriteLine($"Email receipent: {receipent}");
+                   
                     Regex regex = new Regex(@"^[a-zA-Z0-9]{10,30}$");
                     Match match = regex.Match(receipent);
                       if (match.Success)
                       {
-                        //string[] splitStrings = Regex.Split(email, @"@");
-                        //Console.WriteLine(splitString[0]);
-                        Console.WriteLine(splitString[1]);
+                        
+                       
                         string inputDomain = splitString[1];
                         string domain = "code.edu.az";
-                        char AT_SIGN = '@';
-                        //string AT_SIGN = "@";
-                        Console.WriteLine(Regex.Equals(inputDomain, domain));
+                       
+                        
                         if(Regex.Equals(inputDomain, domain))
                         {
-                            Console.WriteLine(Regex.Equals(email, AT_SIGN));
-                            
-                            if(Regex.Equals(email, AT_SIGN))
-                            {
-                                Console.WriteLine("end");
-                                return email;
-                            }
+                           Console.WriteLine();
+                           Console.WriteLine("All parameters are compatible:");
+                           Console.WriteLine();
+                           Console.Write("Receipent:"); Console.WriteLine(splitString[0]);
+                           Console.Write("Separator:"); Console.WriteLine("@");
+                           Console.Write("Domain:"); Console.WriteLine(splitString[1]);
+                           Console.WriteLine();
+                           Console.WriteLine("Your registration is successful. Thanks...");
+                           Console.WriteLine();
+
+                           return email;
                         }
                         else
                         {
