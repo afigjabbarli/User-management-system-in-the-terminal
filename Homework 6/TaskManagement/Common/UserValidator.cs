@@ -175,11 +175,8 @@ namespace TaskManagement.Common
                            Console.Write("Receipent:"); Console.WriteLine(splitString[0]);
                            Console.Write("Separator:"); Console.WriteLine("@");
                            Console.Write("Domain:"); Console.WriteLine(splitString[1]);
-                           Console.WriteLine("Your registration is successful. Thanks...");
-                           Console.WriteLine();
-                           DateTime dateTime = DateTime.Now;
-                           Console.WriteLine("Local registration date: {0}", dateTime);
-                           Console.WriteLine("Universal registration date: {0}", dateTime.ToUniversalTime());
+                           
+                           RepositoryOfRegsitrationTimes.RegistrationTimes();
                            
                            Console.WriteLine();
                            

@@ -20,6 +20,8 @@ namespace TaskManagement.Common
             {
                 User user = users[i];
 
+
+
                 if (user.Email == email && user.Password == password)
                 {
                     if (user.IsBanned)
