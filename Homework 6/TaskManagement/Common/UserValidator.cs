@@ -148,32 +148,51 @@ namespace TaskManagement.Common
                     
                 if (!IsEmailExists(email))
                 {
+                    Regex compatible = new Regex("\\S+@\\S+\\.\\S+\\.\\S+");
+                    compatible.IsMatch(email);
+                    if (compatible.IsMatch(email))
+                    {
+
                     string[] splitString = Regex.Split(email, @"@");
                     string receipent = splitString[0];
                     //Console.WriteLine($"Email receipent: {receipent}");
                     Regex regex = new Regex(@"^[a-zA-Z0-9]{10,30}$");
                     Match match = regex.Match(receipent);
-                    if (match.Success)
-                    {
+                      if (match.Success)
+                      {
                         //string[] splitStrings = Regex.Split(email, @"@");
                         //Console.WriteLine(splitString[0]);
                         Console.WriteLine(splitString[1]);
                         string inputDomain = splitString[1];
                         string domain = "code.edu.az";
+                        char AT_SIGN = '@';
+                        //string AT_SIGN = "@";
                         Console.WriteLine(Regex.Equals(inputDomain, domain));
                         if(Regex.Equals(inputDomain, domain))
                         {
-
+                            Console.WriteLine(Regex.Equals(email, AT_SIGN));
+                            
+                            if(Regex.Equals(email, AT_SIGN))
+                            {
+                                Console.WriteLine("end");
+                                return email;
+                            }
                         }
                         else
                         {
-                          Console.WriteLine($"The email domain {inputDomain} you entered is invalid!!! The email must end with the {domain} domain...Please re-enter it.");
+                          Console.WriteLine($"The email domain <<{inputDomain}>> you entered is invalid!!! The email must end with the <<{domain}>> domain...Please re-enter it.");
+                        }
+                      }
+                        if(!match.Success)
+                        {
+                         Console.WriteLine($"The information <<{email}>> you entered is incorrect");
                         }
                     }
-                    if(!match.Success)
+                    else
                     {
-                      Console.WriteLine($"The information <<{email}>> you entered is incorrect");
+                        Console.WriteLine($"The entered <<{email}>>e-mail address does not match the <<text/@/code.edu.az>> format!!! Please re-enter...");
                     }
+
                 }
                 else
                 Console.WriteLine("Your email is already used in system, pls try another email");
