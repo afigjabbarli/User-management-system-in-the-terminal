@@ -175,10 +175,13 @@ namespace TaskManagement.Common
                            Console.Write("Receipent:"); Console.WriteLine(splitString[0]);
                            Console.Write("Separator:"); Console.WriteLine("@");
                            Console.Write("Domain:"); Console.WriteLine(splitString[1]);
-                           Console.WriteLine();
                            Console.WriteLine("Your registration is successful. Thanks...");
                            Console.WriteLine();
-
+                           DateTime dateTime = DateTime.Now;
+                           Console.WriteLine("Local registration date: {0}", dateTime);
+                           Console.WriteLine("Universal registration date: {0}", dateTime.ToUniversalTime());
+                           Console.WriteLine();
+                           
                            return email;
                         }
                         else
@@ -186,6 +189,7 @@ namespace TaskManagement.Common
                           Console.WriteLine($"The email domain <<{inputDomain}>> you entered is invalid!!! The email must end with the <<{domain}>> domain...Please re-enter it.");
                         }
                       }
+                           
                         if(!match.Success)
                         {
                          Console.WriteLine($"The information <<{email}>> you entered is incorrect");
@@ -195,10 +199,12 @@ namespace TaskManagement.Common
                     {
                         Console.WriteLine($"The entered <<{email}>>e-mail address does not match the <<text/@/code.edu.az>> format!!! Please re-enter...");
                     }
-
                 }
                 else
                 Console.WriteLine("Your email is already used in system, pls try another email");
+                           
+
+
                         
 
                         
