@@ -150,20 +150,44 @@ namespace TaskManagement.Common
                 {
                     string[] splitString = Regex.Split(email, @"@");
                     string receipent = splitString[0];
-                    Console.WriteLine($"Email receipent: {receipent}");
+                    //Console.WriteLine($"Email receipent: {receipent}");
                     Regex regex = new Regex(@"^[a-zA-Z0-9]{10,30}$");
                     Match match = regex.Match(receipent);
                     if (match.Success)
                     {
-                        
+                        //string[] splitStrings = Regex.Split(email, @"@");
+                        //Console.WriteLine(splitString[0]);
+                        Console.WriteLine(splitString[1]);
+                        string inputDomain = splitString[1];
+                        string domain = "code.edu.az";
+                        Console.WriteLine(Regex.Equals(inputDomain, domain));
+                        if(Regex.Equals(inputDomain, domain))
+                        {
+
+                        }
+                        else
+                        {
+                          Console.WriteLine($"The email domain {inputDomain} you entered is invalid!!! The email must end with the {domain} domain...Please re-enter it.");
+                        }
                     }
                     if(!match.Success)
                     {
-                        Console.WriteLine($"The information <<{email}>> you entered is incorrect");
+                      Console.WriteLine($"The information <<{email}>> you entered is incorrect");
                     }
                 }
                 else
                 Console.WriteLine("Your email is already used in system, pls try another email");
+                        
+
+                        
+                        
+                        
+
+                        
+                        
+
+
+                        
 
 
                 
